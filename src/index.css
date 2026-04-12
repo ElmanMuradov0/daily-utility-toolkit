@@ -1,0 +1,41 @@
+@import 'tailwindcss';
+
+/* App-wide font: Inter is loaded from index.html */
+@theme {
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle grid texture on the hero area */
+.bg-grid-soft {
+  background-image:
+    linear-gradient(to right, rgb(24 24 27 / 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(24 24 27 / 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes dice-wobble {
+  0% {
+    transform: rotate(-8deg) translateY(0);
+  }
+  50% {
+    transform: rotate(8deg) translateY(-4px);
+  }
+  100% {
+    transform: rotate(-6deg) translateY(0);
+  }
+}
+
+.dice-rolling {
+  animation: dice-wobble 0.11s ease-in-out infinite;
+}
