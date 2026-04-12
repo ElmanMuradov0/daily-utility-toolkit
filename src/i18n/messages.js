@@ -7,7 +7,7 @@ export const messages = {
       badge: 'İsviçre tarzı araç seti',
       title: 'Günlük Yardımcı Seti',
       subtitle:
-        'İhtiyaç duyduğun her şey, tek yerde — hesap yok, sunucu yok.',
+        'İhtiyaç Duyduğun Her Şey, Tek Yerde — Hesap Yok, Sunucu Yok.',
       footer:
         'Tüm işlemler tarayıcında kalır; hesap veya sunucu gerektirmez.',
       launchTool: 'Aracı aç',
@@ -221,8 +221,8 @@ export const messages = {
     home: {
       badge: 'Swiss-style toolkit',
       title: 'Daily Utility Toolkit',
-      subtitle: 'Your essentials, zero hassle — no accounts, no servers.',
-      footer: 'All processing stays in your browser — no accounts, no servers.',
+      subtitle: 'Your Essentials, Zero Hassle — No Accounts, No Servers.',
+      footer: 'All Processing Stays In Your Browser — No Accounts, No Servers.',
       launchTool: 'Launch tool',
       toolsAria: 'Tools',
     },
