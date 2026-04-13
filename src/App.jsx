@@ -29,23 +29,26 @@ function RouteFallback() {
  */
 export default function App() {
   return (
-    <> {/* Fragment kullanarak birden fazla kök elemanı döndürüyoruz */}
-      <Suspense fallback={<RouteFallback />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tool/smart-raffler" element={<SmartRaffler />} />
-          <Route path="/tool/decision-wheel" element={<DecisionWheel />} />
-          <Route path="/tool/food-what" element={<FoodWhat />} />
-          <Route path="/tool/dice" element={<DiceRoller />} />
-          <Route path="/tool/countdown" element={<CountdownTool />} />
-          <Route path="/tool/unit-converter" element={<UnitConverter />} />
-          <Route path="/tool/pomodoro" element={<Pomodoro />} />
-          <Route path="/tool/bmi" element={<BmiCalculator />} />
-          <Route path="/tool/color-picker" element={<ColorPickerTool />} />
-          <Route path="/tool/text-counter" element={<TextCounter />} />
-        </Routes>
-      </Suspense>
-      <Footer /> {/* Footer bileşenini buraya ekliyoruz */}
-    </>
+    <div className="flex min-h-screen flex-col">
+      {/* Esnek yapı ile Footer her zaman en altta kalır */}
+      <main className="flex-1">
+        <Suspense fallback={<RouteFallback />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/tool/smart-raffler" element={<SmartRaffler />} />
+            <Route path="/tool/decision-wheel" element={<DecisionWheel />} />
+            <Route path="/tool/food-what" element={<FoodWhat />} />
+            <Route path="/tool/dice" element={<DiceRoller />} />
+            <Route path="/tool/countdown" element={<CountdownTool />} />
+            <Route path="/tool/unit-converter" element={<UnitConverter />} />
+            <Route path="/tool/pomodoro" element={<Pomodoro />} />
+            <Route path="/tool/bmi" element={<BmiCalculator />} />
+            <Route path="/tool/color-picker" element={<ColorPickerTool />} />
+            <Route path="/tool/text-counter" element={<TextCounter />} />
+          </Routes>
+        </Suspense>
+      </main>
+      <Footer />
+    </div>
   )
 }
