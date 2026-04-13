@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { useLanguage } from './i18n/useLanguage'
 import Home from './pages/Home'
+import Footer from './components/Footer' // Footer bileşenini import et
 
 const SmartRaffler = lazy(() => import('./pages/tools/SmartRaffler'))
 const DecisionWheel = lazy(() => import('./pages/tools/DecisionWheel'))
@@ -28,20 +29,23 @@ function RouteFallback() {
  */
 export default function App() {
   return (
-    <Suspense fallback={<RouteFallback />}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/tool/smart-raffler" element={<SmartRaffler />} />
-        <Route path="/tool/decision-wheel" element={<DecisionWheel />} />
-        <Route path="/tool/food-what" element={<FoodWhat />} />
-        <Route path="/tool/dice" element={<DiceRoller />} />
-        <Route path="/tool/countdown" element={<CountdownTool />} />
-        <Route path="/tool/unit-converter" element={<UnitConverter />} />
-        <Route path="/tool/pomodoro" element={<Pomodoro />} />
-        <Route path="/tool/bmi" element={<BmiCalculator />} />
-        <Route path="/tool/color-picker" element={<ColorPickerTool />} />
-        <Route path="/tool/text-counter" element={<TextCounter />} />
-      </Routes>
-    </Suspense>
+    <> {/* Fragment kullanarak birden fazla kök elemanı döndürüyoruz */}
+      <Suspense fallback={<RouteFallback />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/tool/smart-raffler" element={<SmartRaffler />} />
+          <Route path="/tool/decision-wheel" element={<DecisionWheel />} />
+          <Route path="/tool/food-what" element={<FoodWhat />} />
+          <Route path="/tool/dice" element={<DiceRoller />} />
+          <Route path="/tool/countdown" element={<CountdownTool />} />
+          <Route path="/tool/unit-converter" element={<UnitConverter />} />
+          <Route path="/tool/pomodoro" element={<Pomodoro />} />
+          <Route path="/tool/bmi" element={<BmiCalculator />} />
+          <Route path="/tool/color-picker" element={<ColorPickerTool />} />
+          <Route path="/tool/text-counter" element={<TextCounter />} />
+        </Routes>
+      </Suspense>
+      <Footer /> {/* Footer bileşenini buraya ekliyoruz */}
+    </>
   )
 }

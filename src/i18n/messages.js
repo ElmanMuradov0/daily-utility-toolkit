@@ -20,7 +20,7 @@ export const messages = {
       lineCountLabel: 'Alan sayısı',
       fieldN: 'Alan {n}',
     },
-    modal: { close: 'Kapat' },
+    modal: { close: 'Kapat' }, // modal objesi doğrudan dil objesi altında
     tools: {
       smartRaffler: {
         title: 'Akıllı çekiliş',
@@ -233,7 +233,7 @@ export const messages = {
       lineCountLabel: 'Number of fields',
       fieldN: 'Field {n}',
     },
-    modal: { close: 'Close' },
+    modal: { close: 'Close' }, // modal objesi doğrudan dil objesi altında
     tools: {
       smartRaffler: {
         title: 'Smart Raffler',
@@ -390,7 +390,7 @@ export const messages = {
       sum: 'Total: {sum}',
     },
     bmi: {
-      title: 'Body mass index (BMI)',
+      title: 'BMI calculator',
       desc: 'Enter height (cm) and weight (kg) for BMI and a simple gauge.',
       height: 'Height (cm)',
       heightPh: 'e.g. 175',

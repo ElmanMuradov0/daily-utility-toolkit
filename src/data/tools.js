@@ -56,6 +56,7 @@ export const TOOLS = [
     localeId: 'pomodoro',
     icon: Timer,
     path: '/tool/pomodoro',
+    icon: Timer,
   },
   {
     id: 'bmi',
