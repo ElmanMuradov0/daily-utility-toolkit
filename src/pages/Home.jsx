@@ -1,5 +1,6 @@
 import Header from '../components/Header'
 import ToolGrid from '../components/ToolGrid'
+import AdSenseBanner from '../components/AdSenseBanner'
 import { useLanguage } from '../i18n/useLanguage'
 
 /**
@@ -14,6 +15,7 @@ export default function Home() {
         <Header />
       </div>
       <ToolGrid />
+      <AdSenseBanner />
 
       <footer className="border-t border-zinc-100 bg-white/60 py-8 text-center text-xs text-zinc-500 backdrop-blur-sm">
         <p>{t('home.footer')}</p>
