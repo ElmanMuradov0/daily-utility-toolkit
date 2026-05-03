@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import { useLanguage } from '../i18n/useLanguage'
-import LanguageSwitcher from './LanguageSwitcher'
 
 /**
  * Landing hero: title, subtitle, and soft decorative accents.
@@ -10,10 +9,6 @@ export default function Header() {
 
   return (
     <header className="relative mx-auto max-w-4xl px-4 pb-10 pt-14 text-center sm:pb-14 sm:pt-20">
-      <div className="absolute right-4 top-4 sm:right-6 sm:top-6">
-        <LanguageSwitcher />
-      </div>
-
       <motion.div
         aria-hidden
         className="pointer-events-none absolute -left-20 top-10 h-56 w-56 rounded-full bg-teal-400/15 blur-3xl"

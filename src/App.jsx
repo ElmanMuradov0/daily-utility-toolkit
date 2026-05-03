@@ -3,6 +3,11 @@ import { Route, Routes } from 'react-router-dom'
 import { useLanguage } from './i18n/useLanguage'
 import Home from './pages/Home'
 import Footer from './components/Footer' // Footer bileşenini import et
+import About from './pages/About'
+import Privacy from './pages/Privacy'
+import Contact from './pages/Contact'
+import Faq from './pages/Faq'
+import Terms from './pages/Terms'
 
 const SmartRaffler = lazy(() => import('./pages/tools/SmartRaffler'))
 const DecisionWheel = lazy(() => import('./pages/tools/DecisionWheel'))
@@ -45,6 +50,11 @@ export default function App() {
             <Route path="/tool/bmi" element={<BmiCalculator />} />
             <Route path="/tool/color-picker" element={<ColorPickerTool />} />
             <Route path="/tool/text-counter" element={<TextCounter />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faq" element={<Faq />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
         </Suspense>
       </main>
