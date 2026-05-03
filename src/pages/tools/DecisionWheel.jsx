@@ -17,7 +17,7 @@ function buildConicGradient(n) {
   return `conic-gradient(${parts.join(', ')})`
 }
 
-function useSlots(initialCount = 6, min = 2, max = 12) {
+function useSlots(initialCount = 2, min = 2, max = 12) {
   const [count, setCount] = useState(initialCount)
   const [values, setValues] = useState(() => Array(initialCount).fill(''))
 
@@ -48,7 +48,7 @@ function useSlots(initialCount = 6, min = 2, max = 12) {
 /** Spinning wheel + colored slots matching slices; legend above wheel. */
 export default function DecisionWheel() {
   const { t } = useLanguage()
-  const { count, setCount, values, setVal, parts } = useSlots(6, 2, 12)
+  const { count, setCount, values, setVal, parts } = useSlots(2, 2, 12)
   const [rotation, setRotation] = useState(0)
   const [spinning, setSpinning] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)

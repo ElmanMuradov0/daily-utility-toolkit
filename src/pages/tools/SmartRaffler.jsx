@@ -5,7 +5,7 @@ import ResultModal from '../../components/ResultModal'
 import SlotInputs from '../../components/SlotInputs'
 import { useLanguage } from '../../i18n/useLanguage'
 
-function useSlots(initialCount = 6, min = 2, max = 20) {
+function useSlots(initialCount = 2, min = 2, max = 20) {
   const [count, setCount] = useState(initialCount)
   const [values, setValues] = useState(() => Array(initialCount).fill(''))
 
@@ -36,7 +36,7 @@ function useSlots(initialCount = 6, min = 2, max = 20) {
 /** Pick a random name from N single-line fields. */
 export default function SmartRaffler() {
   const { t } = useLanguage()
-  const { count, setCount, values, setVal, filled } = useSlots(6, 2, 24)
+  const { count, setCount, values, setVal, filled } = useSlots(2, 2, 24)
   const [winner, setWinner] = useState(null)
   const [modalOpen, setModalOpen] = useState(false)
 
