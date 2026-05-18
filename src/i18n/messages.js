@@ -78,6 +78,10 @@ export const messages = {
         title: 'Kelime ve karakter sayacı',
         desc: 'Metin uzunluğunu sosyal medya öncesi kontrol et',
       },
+      imageResizer: {
+        title: 'Görsel boyutlandırıcı',
+        desc: 'Görsel yükle, ebatı değiştir ve indir',
+      },
     },
     raffler: {
       title: 'Akıllı çekiliş',
@@ -232,6 +236,25 @@ export const messages = {
       charsNoSpace: 'Karakter (boşluksuz)',
       sentences: 'Cümle',
     },
+    imageResizer: {
+      title: 'Görsel boyutlandırıcı',
+      desc: 'Görsel yükle, hedef genişlik ve yükseklik seç, çıktıyı indir.',
+      upload: 'Görsel yükle',
+      choose: 'Dosya seç',
+      noFile: 'Henüz görsel seçilmedi.',
+      width: 'Genişlik (px)',
+      height: 'Yükseklik (px)',
+      keepRatio: 'Oranı koru',
+      format: 'Çıktı formatı',
+      quality: 'Kalite',
+      resize: 'Boyutlandır',
+      download: 'İndir',
+      original: 'Orijinal',
+      result: 'Çıktı',
+      ready: 'Çıktı hazır.',
+      invalid: 'Lütfen geçerli genişlik ve yükseklik girin.',
+      reset: 'Yeni görsel boyutlandır',
+    },
   },
   en: {
     home: {
@@ -306,6 +329,10 @@ export const messages = {
       textCounter: {
         title: 'Word and character counter',
         desc: 'Paste text to count words, characters, and sentences',
+      },
+      imageResizer: {
+        title: 'Image resizer',
+        desc: 'Upload, resize by dimensions, and download',
       },
     },
     raffler: {
@@ -460,6 +487,25 @@ export const messages = {
       chars: 'Characters (with spaces)',
       charsNoSpace: 'Characters (no spaces)',
       sentences: 'Sentences',
+    },
+    imageResizer: {
+      title: 'Image resizer',
+      desc: 'Upload an image, choose target width and height, then download.',
+      upload: 'Upload image',
+      choose: 'Choose file',
+      noFile: 'No image selected yet.',
+      width: 'Width (px)',
+      height: 'Height (px)',
+      keepRatio: 'Keep aspect ratio',
+      format: 'Output format',
+      quality: 'Quality',
+      resize: 'Resize',
+      download: 'Download',
+      original: 'Original',
+      result: 'Output',
+      ready: 'Output is ready.',
+      invalid: 'Please enter valid width and height.',
+      reset: 'Resize a new image',
     },
   },
 }
