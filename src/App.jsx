@@ -1,5 +1,5 @@
-import { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { useLanguage } from './i18n/useLanguage'
 import Home from './pages/Home'
 import Footer from './components/Footer' // Footer bileşenini import et
@@ -8,6 +8,8 @@ import Privacy from './pages/Privacy'
 import Contact from './pages/Contact'
 import Faq from './pages/Faq'
 import Terms from './pages/Terms'
+import Stories from './pages/Stories'
+import AdSenseBanner from './components/AdSenseBanner'
 
 const SmartRaffler = lazy(() => import('./pages/tools/SmartRaffler'))
 const DecisionWheel = lazy(() => import('./pages/tools/DecisionWheel'))
@@ -19,6 +21,17 @@ const Pomodoro = lazy(() => import('./pages/tools/Pomodoro'))
 const BmiCalculator = lazy(() => import('./pages/tools/BmiCalculator'))
 const ColorPickerTool = lazy(() => import('./pages/tools/ColorPickerTool'))
 const TextCounter = lazy(() => import('./pages/tools/TextCounter'))
+const ImageResizer = lazy(() => import('./pages/tools/ImageResizer'))
+
+function ScrollToTopOnRouteChange() {
+  const { pathname } = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [pathname])
+
+  return null
+}
 
 function RouteFallback() {
   const { t } = useLanguage()
@@ -27,6 +40,13 @@ function RouteFallback() {
       {t('common.loading')}
     </div>
   )
+}
+
+function RouteAwareAdSlot() {
+  const { pathname } = useLocation()
+  const ALLOWED = new Set(['/', '/about', '/faq', '/stories'])
+  if (!ALLOWED.has(pathname)) return null
+  return <AdSenseBanner />
 }
 
 /**
@@ -38,6 +58,7 @@ export default function App() {
       {/* Esnek yapı ile Footer her zaman en altta kalır */}
       <main className="flex-1">
         <Suspense fallback={<RouteFallback />}>
+          <ScrollToTopOnRouteChange />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tool/smart-raffler" element={<SmartRaffler />} />
@@ -50,12 +71,15 @@ export default function App() {
             <Route path="/tool/bmi" element={<BmiCalculator />} />
             <Route path="/tool/color-picker" element={<ColorPickerTool />} />
             <Route path="/tool/text-counter" element={<TextCounter />} />
+            <Route path="/tool/image-resizer" element={<ImageResizer />} />
             <Route path="/about" element={<About />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<Faq />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/stories" element={<Stories />} />
           </Routes>
+          <RouteAwareAdSlot />
         </Suspense>
       </main>
       <Footer />

@@ -3,6 +3,7 @@ import {
   ChefHat,
   Dices,
   FileText,
+  Image,
   Hourglass,
   Orbit,
   Palette,
@@ -75,5 +76,11 @@ export const TOOLS = [
     localeId: 'textCounter',
     icon: FileText,
     path: '/tool/text-counter',
+  },
+  {
+    id: 'image-resizer',
+    localeId: 'imageResizer',
+    icon: Image,
+    path: '/tool/image-resizer',
   },
 ]

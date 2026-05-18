@@ -1,15 +1,50 @@
 import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import { useLanguage } from '../i18n/useLanguage'
 import LanguageSwitcher from './LanguageSwitcher'
 import usePageMeta from '../hooks/usePageMeta'
 
+const TOOL_GUIDES = {
+  '/tool/smart-raffler': {
+    tr: {
+      title: 'Ne zaman kullanılır?',
+      body: 'Toplantıda konuşma sırası belirleme, sınıfta adil seçim yapma veya etkinlik çekilişi gibi senaryolarda hızlı ve tarafsız sonuç üretir. Tekrarlayan isimleri temizleyip yalnızca dolu satırları dikkate aldığı için manuel hata riskini azaltır.',
+    },
+    en: {
+      title: 'When should you use it?',
+      body: 'Useful for meeting order, classroom picks, and small event draws where fairness matters. It ignores empty rows and keeps the selection flow simple, reducing manual mistakes in quick decision moments.',
+    },
+  },
+  '/tool/decision-wheel': {
+    tr: {
+      title: 'Karar kalitesini nasıl artırır?',
+      body: 'Benzer ağırlıktaki seçeneklerde gereksiz tartışmayı kısaltır ve ekip içinde karar yorgunluğunu düşürür. Özellikle beyin fırtınası sonrasında kalan adaylar arasından şeffaf seçim yapmak için etkilidir.',
+    },
+    en: {
+      title: 'How does it improve decision quality?',
+      body: 'It shortens low-value debates when options are similarly good and helps teams avoid decision fatigue. It is especially practical after brainstorming when you need a transparent final pick.',
+    },
+  },
+  '/tool/food-what': {
+    tr: {
+      title: 'Pratik kullanım senaryosu',
+      body: '“Bugün ne yesek?” kararsızlığını hızla çözmek için tasarlanmıştır. Haftalık menü planı yaparken rastgele öneri üretip sonrasında bütçe, kalori veya hazırlık süresine göre daraltma adımıyla birlikte kullanıldığında daha verimli olur.',
+    },
+    en: {
+      title: 'Practical use case',
+      body: 'Built for quickly resolving “what should we eat today?” indecision. It works best as a first-pass generator before narrowing options by budget, calories, or prep time during weekly meal planning.',
+    },
+  },
+}
+
 /**
  * Shared chrome for tool pages: back navigation + animated content shell.
  */
 export default function ToolShell({ title, description, children }) {
   const { t, lang } = useLanguage()
+  const { pathname } = useLocation()
   const isTr = lang === 'tr'
   usePageMeta(
     `${title} | Daily Utility Toolkit`,
@@ -17,7 +52,12 @@ export default function ToolShell({ title, description, children }) {
       (isTr
         ? `${title} aracı ile hızlı ve pratik hesaplama/karar işlemleri yapın.`
         : `Use the ${title} tool for quick and practical calculations/decisions.`),
+    {
+      noindex: true,
+      canonicalPath: pathname,
+    },
   )
+  const guide = TOOL_GUIDES[pathname]?.[isTr ? 'tr' : 'en']
 
   return (
     <div className="min-h-dvh bg-zinc-50 bg-grid-soft">
@@ -93,6 +133,13 @@ export default function ToolShell({ title, description, children }) {
                 : 'These tools are for general use and should not be the sole basis for medical, legal, or financial decisions. Validate critical outcomes with a second source.'}
             </p>
           </article>
+
+          {guide ? (
+            <article className="rounded-2xl border border-sky-200 bg-sky-50 p-5 shadow-sm">
+              <h2 className="text-lg font-semibold text-sky-900">{guide.title}</h2>
+              <p className="mt-2 text-sm leading-7 text-sky-900/90">{guide.body}</p>
+            </article>
+          ) : null}
         </section>
       </motion.main>
     </div>

@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 
 const ADSENSE_CLIENT = 'ca-pub-3773141813813629'
 const HOME_SLOT = import.meta.env.VITE_ADSENSE_SLOT_HOME
+const ADSENSE_ENABLED = import.meta.env.VITE_ADSENSE_ENABLED === 'true'
 
 /**
  * Renders a manual ad unit only when a slot is configured.
@@ -11,7 +12,7 @@ export default function AdSenseBanner() {
   const adRef = useRef(null)
 
   useEffect(() => {
-    if (!HOME_SLOT) return
+    if (!ADSENSE_ENABLED || !HOME_SLOT) return
 
     const existing = document.querySelector('script[data-adsense-loader="manual"]')
     if (!existing) {
@@ -33,7 +34,7 @@ export default function AdSenseBanner() {
     }
   }, [])
 
-  if (!HOME_SLOT) return null
+  if (!ADSENSE_ENABLED || !HOME_SLOT) return null
 
   return (
     <section className="mx-auto mt-8 max-w-5xl px-4" aria-label="Reklam alani">

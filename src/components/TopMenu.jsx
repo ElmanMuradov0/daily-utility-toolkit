@@ -47,6 +47,12 @@ export default function TopMenu() {
             {isTr ? 'SSS' : 'FAQ'}
           </Link>
           <Link
+            to="/stories"
+            className="rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 shadow-sm transition hover:border-teal-200 hover:text-teal-800 sm:text-sm"
+          >
+            {isTr ? 'Hikaye' : 'Stories'}
+          </Link>
+          <Link
             to="/terms"
             className="rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-medium text-zinc-700 shadow-sm transition hover:border-teal-200 hover:text-teal-800 sm:text-sm"
           >
